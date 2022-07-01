@@ -46,10 +46,14 @@ INSERT INTO customers (name, address, city, country) VALUES ('Amber Tran','6967 
 INSERT INTO customers (name, address, city, country) VALUES ('Edan Higgins','Ap #840-3255 Tincidunt St.','Arles','United States');
 INSERT INTO customers (name, address, city, country) VALUES ('Quintessa Austin','597-2737 Nunc Rd.','Saint-Marc','United Kingdom');
 
+SELECT * FROM customers
+
 INSERT INTO suppliers (supplier_name, country) VALUES ('Amazon', 'United States');
 INSERT INTO suppliers (supplier_name, country) VALUES ('Taobao', 'China');
 INSERT INTO suppliers (supplier_name, country) VALUES ('Argos', 'United Kingdom');
 INSERT INTO suppliers (supplier_name, country) VALUES ('Sainsburys', 'United Kingdom');
+
+SELECT * FROM suppliers
 
 INSERT INTO products (product_name, unit_price, supplier_id) VALUES ('Tee Shirt Olympic Games', 20, 1);
 INSERT INTO products (product_name, unit_price, supplier_id) VALUES ('Tee Shirt Olympic Games', 18, 2);
@@ -73,6 +77,8 @@ INSERT INTO products (product_name, unit_price, supplier_id) VALUES ('Coffee Cup
 INSERT INTO products (product_name, unit_price, supplier_id) VALUES ('Coffee Cup', 4, 3);
 INSERT INTO products (product_name, unit_price, supplier_id) VALUES ('Coffee Cup', 5, 4);
 
+SELECT * FROM products
+
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-06-01', 'ORD001', 1);
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-07-15', 'ORD002', 1);
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-07-11', 'ORD003', 1);
@@ -83,6 +89,8 @@ INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-04-0
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-07-23', 'ORD008', 5);
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-07-24', 'ORD009', 5);
 INSERT INTO orders (order_date, order_reference, customer_id) VALUES ('2019-05-10', 'ORD010', 5);
+
+SELECT * FROM orders
 
 INSERT INTO order_items (order_id, product_id, quantity) VALUES(1, 2, 1);
 INSERT INTO order_items (order_id, product_id, quantity) VALUES(1, 7, 5);
@@ -103,3 +111,30 @@ INSERT INTO order_items (order_id, product_id, quantity) VALUES(8, 5, 1);
 INSERT INTO order_items (order_id, product_id, quantity) VALUES(9, 13, 2);
 INSERT INTO order_items (order_id, product_id, quantity) VALUES(10, 14, 1);
 INSERT INTO order_items (order_id, product_id, quantity) VALUES(10, 6, 5);
+
+
+SELECT * FROM order_items
+
+--Task 1
+SELECT name,address FROM customers WHERE country = 'United States';
+--Task 2
+SELECT name FROM customers ORDER BY name ASC;
+--Task 3
+SELECT product_name,supplier_id FROM products WHERE unit_price > 100;
+--Task 4
+SELECT product_name FROM products WHERE product_name like '%socks%'
+--Task 5
+SELECT unit_price FROM products  ORDER BY unit_price DESC FETCH FIRST 5 ROWS ONLY;
+--Task 6
+
+--Task 7
+
+--Task 8
+SELECT order_reference FROM orders WHERE customer_id = 1;
+--Task 9
+
+--Task 10
+
+--Task 11
+
+--Task 12
