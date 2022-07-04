@@ -126,15 +126,31 @@ SELECT product_name FROM products WHERE product_name like '%socks%'
 --Task 5
 SELECT unit_price FROM products  ORDER BY unit_price DESC FETCH FIRST 5 ROWS ONLY;
 --Task 6
-
+SELECT product_name, unit_price, supplier_name FROM products AS p INNER JOIN suppliers AS s ON s.id=p.supplier_id;
 --Task 7
-
+SELECT product_name, supplier_name FROM products AS p INNER JOIN suppliers AS s ON s.id=p.supplier_id WHERE s.country='United Kingdom';
 --Task 8
 SELECT order_reference FROM orders WHERE customer_id = 1;
 --Task 9
-
+SELECT * FROM orders AS o INNER JOIN customers AS c ON c.id=o.customer_id WHERE c.name='Hope Crosby';
 --Task 10
-
+SELECT product_name, unit_price, quantity
+FROM products AS p
+INNER JOIN order_items AS i ON p.id=i.product_id
+INNER JOIN orders AS o ON o.id=i.order_id
+WHERE o.order_reference='ORD006';
 --Task 11
-
+SELECT name, order_reference, order_date, product_name, supplier_name, quantity
+FROM customers AS c
+INNER JOIN orders AS o ON c.id=o.customer_id
+INNER JOIN order_items AS i ON o.id=i.order_id
+INNER JOIN products AS p ON p.id=i.product_id
+INNER JOIN suppliers AS s ON s.id=p.supplier_id;
 --Task 12
+SELECT name
+FROM customers AS c
+INNER JOIN orders AS o ON c.id=o.customer_id
+INNER JOIN order_items AS i ON o.id=i.order_id
+INNER JOIN products AS p ON p.id=i.product_id
+INNER JOIN suppliers AS s ON s.id=p.supplier_id
+WHERE s.country='China';
